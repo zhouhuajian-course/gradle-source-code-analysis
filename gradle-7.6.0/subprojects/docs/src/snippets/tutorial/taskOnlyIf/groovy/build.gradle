@@ -1,0 +1,9 @@
+def hello = tasks.register('hello') {
+    doLast {
+        println 'hello world'
+    }
+}
+
+hello.configure {
+    onlyIf("there is no property skipHello") { !project.hasProperty('skipHello') }
+}
