@@ -30,6 +30,6 @@ tasks.register('helloTask') {
     }
 }
 
-println tasks.getByPath('hello').path
+// println tasks.getByPath('hello').path
 // Task with path 'subproject01:helloTask' not found in project ':subproject01'.
-println tasks.getByPath('subproject01:helloTask').path
+// 错误的 println tasks.getByPath('subproject01:helloTask').path

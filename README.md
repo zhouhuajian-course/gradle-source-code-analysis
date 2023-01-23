@@ -58,9 +58,30 @@ gradlew -q helloTask
 
 任务绝对路径 :subproject01:helloTask
 
+6. 任务的运行
+
++ gradlew helloTask  运行所有项目的helloTask
++ gradlew :helloTask 运行根项目的helloTask
++ gradlew subproject01:helloTask 运行根项目下子项目subproject01的helloTask
++ gradlew :subproject01:helloTask 运行根项目下子项目subproject01的helloTask
+
 ## 命令行参数
 
 -q, --quiet                        Log errors only.
+
+## gradle-wrapper.jar
+
+1. 右键 Add as library 可以看jar包里面的代码
+
+2. 添加 直接运行 GradleWrapperMain的运行配置
+
+![GradleWrapperMain-run-configuration.png](readme/GradleWrapperMain-run-configuration.png)
+
+*备注：忽略IDEA提示的配置错误*
+
+3. 添加好运行配置后，可进行debug
+
+![GradleWrapperMain-debug.png](readme/GradleWrapperMain-debug.png)
 
 ## 源码分析图
 

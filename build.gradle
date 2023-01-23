@@ -74,9 +74,9 @@ tasks.withType(CustomTask) {
     number = number + 3
 }
 
-println tasks.getByPath('helloTask').path
-println tasks.getByPath(':helloTask').path
+// println tasks.getByPath('helloTask').path
+// println tasks.getByPath(':helloTask').path
 // > Task with path 'hello' not found in root project 'gradle-source-code-analysis'.
-// println tasks.getByPath('hello').path
-println tasks.getByPath('subproject01:helloTask').path
-println tasks.getByPath(':subproject01:helloTask').path
+// 错误的 println tasks.getByPath('hello').path
+// println tasks.getByPath('subproject01:helloTask').path
+// println tasks.getByPath(':subproject01:helloTask').path
