@@ -16,6 +16,14 @@ gradlew.bat 大部分是环境设置、参数处理、代码注释等内容
 
 源码在`gradle-7.6.0/subprojects/wrapper/src/main/java/org/gradle/wrapper/GradleWrapperMain.java`
 
+## 任务的命名
+
+使用小驼峰命名法
+
+## 命令行参数
+
+-q, --quiet                        Log errors only.
+
 ## 源码分析图
 
 ![source-code-analysis.png](readme/source-code-analysis-01.png)

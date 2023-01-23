@@ -17,3 +17,59 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// --------------------------------------------------------------
+
+// 自定义任务类型
+// 传递参数给任务构造函数
+abstract class CustomTask extends DefaultTask {
+    @Input
+    String message
+    @Input
+    int number
+    @Input
+    abstract Property<String> getTime()
+
+    @Inject
+    CustomTask(message, number) {
+        this.message = message
+        this.number = number
+
+        configure {
+            println "configure"
+        }
+
+        doFirst {
+            println "doFirst"
+        }
+
+        doLast {
+            println "doLast"
+        }
+    }
+
+    @TaskAction
+    void greet() {
+        println "Greeting ${this.message} ${this.number} times ${this.time.get()}"
+    }
+
+    @TaskAction
+    void greet2() {
+        println "Greeting ${this.message} ${this.number} times again ${this.time.get()}"
+    }
+}
+
+
+
+tasks.register("helloTask", CustomTask, "Gradle", 3)
+tasks.register("helloTask2", CustomTask, "Task", 5)
+
+tasks.withType(CustomTask).configureEach {
+    time.set("this morning")
+    number = number + 1
+}
+
+tasks.withType(CustomTask) {
+    time.set("this afternoon")
+    number = number + 3
+}
