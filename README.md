@@ -16,9 +16,47 @@ gradlew.bat 大部分是环境设置、参数处理、代码注释等内容
 
 源码在`gradle-7.6.0/subprojects/wrapper/src/main/java/org/gradle/wrapper/GradleWrapperMain.java`
 
-## 任务的命名
+## 项目
+
+1. 项目的路径
+
+根项目直接显示项目名
+
+root project 'gradle-source-code-analysis'
+
+子项目
+
+:subproject01 表示根项目下的subproject01项目
+
+## 任务
+
+1. 任务的命名
 
 使用小驼峰命名法
+
+2. 子项目的任务执行
+
+gradlew -q hello
+
+3. 任务重名
+
+gradlew -q helloTask 
+
+4. 路径规则
+
+:helloTask 表示根项目下的任务 helloTask
+
+:subproject01:helloTask 表示是子项目01下的helloTask
+
+会执行所有项目所有名字为helloTask的任务
+
+5. 通过任务路径来找任务，可使用任务名 任务相对路径 任务绝对路径
+
+任务名 helloTask，表示在当前项目找，只写任务名，其实是任务的相对路径
+
+任务相对路径 subproject01:helloTask 
+
+任务绝对路径 :subproject01:helloTask
 
 ## 命令行参数
 
